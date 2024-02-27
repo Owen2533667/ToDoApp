@@ -84,7 +84,7 @@ public class TaskList {
     }
 
     public List<Task> getLateTasks() {
-        return taskLinkedList.stream().filter(task -> task.getDueDate().isAfter(LocalDate.now()) && !task.isCompleted()).toList();
+        return taskLinkedList.stream().filter(task -> task.getDueDate().isBefore(LocalDate.now()) && !task.isCompleted()).toList();
     }
 
     @Override
