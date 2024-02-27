@@ -14,7 +14,9 @@ public class Main {
         Task task5 = new Task("Task five", true, LocalDate.now().minusYears(1), Priority.LOW);
         Task task6 = new Task("Task six", false, LocalDate.now().plusMonths(2), Priority.MEDIUM);
 
-        TaskList taskList = new TaskList();
+        TaskList taskList = new TaskList("School tasks", "Tasks that are for my school");
+
+        System.out.println(taskList);
 
         System.out.println(taskList.totalTasks());
 
@@ -29,6 +31,8 @@ public class Main {
         System.out.println(taskList.getComopletedTasks());
 
         System.out.println(taskList.getUncompletedTasks());
+
+        System.out.println(taskList);
 
     }
 }

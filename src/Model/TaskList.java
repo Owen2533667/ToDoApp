@@ -67,6 +67,10 @@ public class TaskList {
         return taskLinkedList.size();
     }
 
+    public LinkedList<Task> getTasks() {
+        return taskLinkedList;
+    }
+
     public List<Task> getTasksByPriority(Priority priority) {
         return taskLinkedList.stream().filter(task -> task.getPriority() == priority).toList();
     }
@@ -80,8 +84,15 @@ public class TaskList {
     }
 
     public List<Task> getLateTasks() {
-        return taskLinkedList.stream().filter(task -> task.getDueDate().isAfter(LocalDate.now())).toList();
+        return taskLinkedList.stream().filter(task -> task.getDueDate().isAfter(LocalDate.now()) && !task.isCompleted()).toList();
     }
 
-
+    @Override
+    public String toString() {
+        return "TaskList{" +
+                "Title='" + tasksCollectionTitle + '\'' +
+                ", Description='" + tasksDescription + '\'' +
+                ", Tasks=" + taskLinkedList +
+                '}';
+    }
 }
